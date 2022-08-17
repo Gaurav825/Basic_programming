@@ -1,0 +1,44 @@
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[4][4]={{1, 2 ,3 ,4 },
+         {5 ,6, 7, 8} ,
+         {9, 0 ,1, 2 },
+         {3 ,4, 5, 6 }
+    };
+    // reverse every row in the matrix
+    for(int i=0; i<4; i++)
+    {
+        // reverse every column
+        for(int col=0; col<2; col++)
+        {
+
+            swap(arr[i][col],arr[i][4-col-1]);
+        }
+    }
+    // now swap row from top to bottom
+    for(int i=0; i<2; i++)
+    {
+
+        for(int col=0; col<4; col++)
+        {
+            swap(arr[i][col],arr[4-i-1][col]);
+        }
+    }
+    for(int i=0; i<4; i++)
+    {
+
+        for(int j=0; j<4; j++)
+        {
+
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
