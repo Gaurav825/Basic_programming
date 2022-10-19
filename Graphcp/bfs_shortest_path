@@ -1,0 +1,89 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define pb push_back
+#define loop(a,b) for(int i=a; i<=b; i++)
+const int mod=1000000007;
+typedef vector<int> vi;
+#define ll long long int
+#define endl '\n'
+#define fast() ios_base::sync_with_stdio(NULL),cin.tie(0),cout.tie(0);
+
+vector<int>adj[300009];
+void bfs(int src,int dest)
+{
+    vector<int>vis(900009,0);
+    list<int>q;
+    vector<int>dist(900000);
+
+     for (int i = 0; i < 100000; i++) {
+
+        dist[i] = INT_MAX;
+
+    }
+    vis[src] = true;
+    dist[src] = 0;
+    q.push_back(src);
+    while(!q.empty())
+    {
+        int u = q.front();
+        q.pop_front();
+        for (int i = 0; i <(int) adj[u].size(); i++) {
+            if (vis[adj[u][i]] == false) {
+                vis[adj[u][i]] = true;
+                dist[adj[u][i]] = dist[u] + 1;
+
+                q.push_back(adj[u][i]);
+
+                // We stop BFS when we find
+                // destination.
+                if (adj[u][i] == dest)
+                   {
+
+                    cout<<dist[dest]<<endl;
+                    return ;
+                   }
+            }
+
+
+    }
+
+}
+}
+void solve()
+{
+    int n,m;
+    cin>>n>>m;
+    if(n>=m)
+    {
+        cout<<n-m<<endl;
+        return ;
+    }
+    for(int i=1; i<=10001; i++)
+    {
+        int a=i-1;
+        int b=i*2;
+        adj[i].push_back(a);
+        adj[i].push_back(b);
+    }
+    bfs(n,m);
+
+
+
+
+
+
+
+
+
+
+}
+ int main()
+ {
+     fast();
+    int t=1;
+     while(t--)
+     {
+
+       solve();
+     }
+ }
