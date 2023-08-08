@@ -1,0 +1,32 @@
+
+//idea1 class construtor
+#include <bits/stdc++.h>
+using namespace std;
+class A
+{
+    public:
+    static int a;
+    A(){
+        cout<<a++<<" ";
+        
+    }
+};
+int A::a = 1;
+
+
+int main()
+{
+   A arr[100];
+    return 0;
+
+// goto statement technique
+    int x=1;
+    update:
+    x++;
+    if(x>100)
+    return 0;
+    cout<<x<<" ";
+    goto update;
+    
+}
+
